@@ -47,14 +47,14 @@ int partition(int *array, size_t size, size_t start, size_t pivot)
 }
 
 /**
- * quick - lquick
+ * _quick - lquick
  * @array: Given array.
  * @size: Size of given array.
  * @start: Start
  * @end: End
  *
  */
-void quick(int *array, size_t size, size_t start, size_t end)
+void _quick(int *array, size_t size, size_t start, size_t end)
 {
 	size_t split;
 
@@ -64,9 +64,9 @@ void quick(int *array, size_t size, size_t start, size_t end)
 
 	split = partition(array, size, start, end);
 	if (split != 0 && split >= start)
-		quick(array, size, start, split - 1);
+		_quick(array, size, start, split - 1);
 	if (split < size - 1)
-		quick(array, size, split + 1, end);
+		_quick(array, size, split + 1, end);
 }
 
 /**
@@ -78,5 +78,5 @@ void quick_sort(int *array, size_t size)
 {
 	if (array == NULL || size < 2)
 		return;
-	quick(array, size, 0, size - 1);
+	_quick(array, size, 0, size - 1);
 }
